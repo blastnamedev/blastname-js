@@ -1,0 +1,68 @@
+{
+  "extends": [
+    "airbnb-base",
+    "airbnb-typescript/base",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "prettier", "jest"],
+  "parser": "@typescript-eslint/parser",
+  "overrides": [
+    {
+      "files": ["**/*.spec.ts"],
+      "env": { "jest/globals": true },
+      "globals": {
+        "context": "readonly"
+      },
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"],
+      "rules": {
+        "jest/valid-expect": 0
+      }
+    }
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "no-console": "off",
+    "no-restricted-syntax": ["off"],
+    "consistent-return": ["off"],
+    "import/no-named-as-default": ["off"],
+    "func-names": ["off"],
+    "no-param-reassign": ["off"],
+    "no-underscore-dangle": ["off"],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "default",
+        "format": ["camelCase"],
+        "leadingUnderscore": "allowSingleOrDouble",
+        "trailingUnderscore": "allowSingleOrDouble"
+      },
+      {
+        "selector": "memberLike",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase"],
+        "leadingUnderscore": "allowSingleOrDouble",
+        "trailingUnderscore": "allowSingleOrDouble"
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE"],
+        "leadingUnderscore": "allowSingleOrDouble",
+        "trailingUnderscore": "allowSingleOrDouble"
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      }
+    ],
+    "no-useless-return": ["off"],
+    "radix": ["error", "as-needed"],
+    "no-bitwise": ["off"],
+    "import/no-extraneous-dependencies": ["off"],
+    "no-empty": ["error", { "allowEmptyCatch": true }],
+    "import/extensions": ["off"]
+  },
+  "ignorePatterns": ["node_modules", "dist", "data", "cache", "esbuild.js"]
+}
